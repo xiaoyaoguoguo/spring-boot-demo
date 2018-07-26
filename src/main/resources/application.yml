@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: test-fourservice
+  profiles:
+    active: druid
+
+# MyBatis
+mybatis:
+  typeAliasesPackage: com.panda.springbootdemo.domain
+  mapperLocations: classpath:mybatis/**/*Mapper.xml
+  configLocation: classpath:mybatis/mybatis-config.xml
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
