@@ -1,8 +1,13 @@
 package com.panda.springbootdemo.controller;
 
 import com.panda.springbootdemo.domain.User;
+import com.panda.springbootdemo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author jamie
@@ -12,12 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class UserController {
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/index")
     public String hello(){
         return "hello";
     }
-
-//    public User getUser(){
-//        return
-//    }
+    @RequestMapping("/getUsers")
+    public List<User> getUser(){
+        return userService.getUsers();
+    }
 }
